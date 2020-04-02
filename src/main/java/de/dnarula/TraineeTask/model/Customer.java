@@ -5,45 +5,53 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
 
-
+/**
+ * Das Model für Kunden
+ * @author Dominic Narula
+ * @version 1.0
+ * @since 2020-04-01
+ */
 public class Customer
 {
     private final UUID customernumber;
     @NotNull
-    private String sName;
+    private String name;
     @NotNull
-    private Address aAddress;
+    private Address address;
+
+    //Constructor
     public Customer(@JsonProperty("id") UUID customernumber,
                     @JsonProperty("name") String name,
                     @JsonProperty("address") Address address)
     {
         this.customernumber = customernumber;
-        this.sName = name;
-        this.aAddress = address;
+        this.name = name;
+        this.address = address;
     }
 
+    //Getter and Setters for the variables in the class customer
     public UUID getCustomernumber()
     {
         return customernumber;
     }
 
-    public String getsName()
+    public String getName()
     {
-        return sName;
+        return name;
     }
 
-    public void setsName(String sName)
+    public void setName(String name)
     {
-        this.sName = sName;
+        this.name = name;
     }
 
-    public Address getaAddress()
+    public Address getAddress()
     {
-        return aAddress;
+        return address;
     }
 
-    public void setaAddress(Address aAddress)
+    public void setAddress(Address address)
     {
-        this.aAddress = aAddress;
+        this.address = address;
     }
 }
