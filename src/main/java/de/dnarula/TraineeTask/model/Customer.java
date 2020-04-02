@@ -1,6 +1,7 @@
 package de.dnarula.TraineeTask.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotNull;
 import java.util.UUID;
@@ -13,9 +14,12 @@ import java.util.UUID;
  */
 public class Customer
 {
+    @ApiModelProperty(notes="eindeutige Kundennummer",position = 1)
     private final UUID customernumber;
+    @ApiModelProperty(notes="Kundennamen", position = 2)
     @NotNull
     private String name;
+    @ApiModelProperty(notes="Adressenmodel vom Kunden", position = 3)
     @NotNull
     private Address address;
 
