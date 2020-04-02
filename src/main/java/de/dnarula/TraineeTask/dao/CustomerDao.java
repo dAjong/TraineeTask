@@ -8,21 +8,21 @@ import java.util.UUID;
 
 public interface CustomerDao
 {
-    int insertCustomer(UUID id, Customer customer);
+    int insertCustomer(UUID customernumber, Customer customer);
 
     default int insertCustomer(Customer customer)
     {
-        UUID id = UUID.randomUUID();
-        return insertCustomer(id, customer);
+        UUID customernumber = UUID.randomUUID();
+        return insertCustomer(customernumber, customer);
     }
 
     List<Customer> selectAllCustomer();
 
-    Optional<Customer> selectCustomerById(UUID id);
+    Optional<Customer> selectCustomerByCustomernumber(UUID customernumber);
 
-    int deleteCustomerById(UUID id);
+    int deleteCustomerByCustomernumber(UUID customernumber);
 
-    int updateCustomerById(UUID id, Customer newCustomer);
+    int updateCustomerByCustomernumber(UUID customernumber, Customer newCustomer);
 
     List<Customer> selectAllCustomerbyStreet(String street);
 
