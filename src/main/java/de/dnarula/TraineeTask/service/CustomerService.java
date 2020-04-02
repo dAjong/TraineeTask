@@ -45,4 +45,9 @@ public class CustomerService
     {
         return customerDao.updateCustomerById(id,updatedCustomer);
     }
+
+    public List<Customer> getAllCustomerFilteredByStreet(String street)
+    {
+        return customerDao.selectAllCustomerbyStreet(street);
+    }
 }

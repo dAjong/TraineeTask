@@ -53,4 +53,10 @@ public class CustomerController
     {
         customerService.updateCustomer(id,updatedCustomer);
     }
+
+    @RequestMapping(path="{street}", method = RequestMethod.GET, produces = "application/json")
+    public List<Customer> getAllCustomerFilteredByStreet(@PathVariable("street") String street)
+    {
+        return customerService.getAllCustomerFilteredByStreet(street);
+    }
 }
