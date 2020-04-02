@@ -19,6 +19,7 @@ public class Customer
     @NotNull
     private Address address;
 
+    //Constructor
     public Customer(@JsonProperty("id") UUID customernumber,
                     @JsonProperty("name") String name,
                     @JsonProperty("address") Address address)

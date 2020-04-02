@@ -4,65 +4,73 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import javax.validation.constraints.NotNull;
 
+/**
+ * Das Model für Adressen von Kunden
+ * @author Dominic Narula
+ * @version 1.0
+ * @since 2020-04-01
+ */
 public class Address
 {
     @NotNull
-    private String sStreet;
+    private String street;
     @NotNull
-    private String sZip;
+    private String zip;
     @NotNull
-    private String sHouseNumber;
+    private String housenumber;
     @NotNull
-    private String sCity;
+    private String city;
 
+    //Constructor
     public Address(@JsonProperty("street") String sStreet,
                    @JsonProperty("zip") String sZip,
                    @JsonProperty("housenumber") String sHouseNumber,
                    @JsonProperty("city") String sCity)
     {
-        this.sStreet = sStreet;
-        this.sZip = sZip;
-        this.sHouseNumber = sHouseNumber;
-        this.sCity = sCity;
+        this.street = sStreet;
+        this.zip = sZip;
+        this.housenumber = sHouseNumber;
+        this.city = sCity;
     }
 
-    public String getsStreet()
+    //Getter and Setter
+    public String getStreet()
     {
-        return sStreet;
+        return street;
     }
 
-    public void setsStreet(String sStreet)
+    public void setStreet(String street)
     {
-        this.sStreet = sStreet;
+        this.street = street;
     }
 
-    public String getsZip()
+    public String getZip()
     {
-        return sZip;
+        return zip;
     }
 
-    public void setsZip(String sZip)
+    public void setZip(String zip)
     {
-        this.sZip = sZip;
+        this.zip = zip;
     }
 
-    public String getsHouseNumber()
+    public String getHousenumber()
     {
-        return sHouseNumber;
+        return housenumber;
     }
 
-    public void setsHouseNumber(String sHouseNumber)
+    public void setHousenumber(String housenumber)
     {
-        this.sHouseNumber = sHouseNumber;
+        this.housenumber = housenumber;
     }
 
-    public void setsCity(String sCity)
+    public void setCity(String city)
     {
-        this.sCity = sCity;
+        this.city = city;
     }
 
-    public String getsCity()
+    public String getCity()
     {
-        return sCity;
+        return city;
     }
 }
