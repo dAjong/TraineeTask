@@ -1,6 +1,7 @@
 package de.dnarula.TraineeTask.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.annotations.ApiModelProperty;
 
 import javax.validation.constraints.NotNull;
 
@@ -12,12 +13,16 @@ import javax.validation.constraints.NotNull;
  */
 public class Address
 {
+    @ApiModelProperty(notes="Straße")
     @NotNull
     private String street;
+    @ApiModelProperty(notes="PLZ")
     @NotNull
     private String zip;
+    @ApiModelProperty(notes="Hausnummer")
     @NotNull
     private String housenumber;
+    @ApiModelProperty(notes="Stadt")
     @NotNull
     private String city;
 

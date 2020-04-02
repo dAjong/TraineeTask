@@ -40,12 +40,12 @@ public class InMemoryCustomerDaoImplTest
         testDB.insertCustomer(idTwo,customerTwo);
         testDB.insertCustomer(idThree,customerThree);
 
-        assertThat(testDB.selectCustomerById(idOne))
+        assertThat(testDB.selectCustomerByCustomernumber(idOne))
                 .isPresent()
                 .hasValueSatisfying(customerFromDb -> assertThat(customerFromDb)
                                                         .isEqualToComparingFieldByField(customerOne));
 
-        assertThat(testDB.selectCustomerById(idTwo))
+        assertThat(testDB.selectCustomerByCustomernumber(idTwo))
                 .isPresent()
                 .hasValueSatisfying(customerFromDb -> assertThat(customerFromDb)
                                                         .isEqualToComparingFieldByField(customerTwo));
@@ -71,19 +71,19 @@ public class InMemoryCustomerDaoImplTest
         //Update the first customer
         Customer customerUpdate = new Customer(idOne,"Maximum Musterdiverse",addressOne);
 
-        assertThat(testDB.updateCustomerById(idOne,customerUpdate)).isEqualTo(1);
+        assertThat(testDB.updateCustomerByCustomernumber(idOne,customerUpdate)).isEqualTo(1);
 
-        assertThat(testDB.selectCustomerById(idOne))
+        assertThat(testDB.selectCustomerByCustomernumber(idOne))
                 .isPresent()
                 .hasValueSatisfying(customerFromDb -> assertThat(customerFromDb)
                                                         .isEqualToComparingFieldByField(customerUpdate));
 
 
         //Testing delete function
-        assertThat(testDB.deleteCustomerById(idOne)).isEqualTo(1);
+        assertThat(testDB.deleteCustomerByCustomernumber(idOne)).isEqualTo(1);
 
         //Checking if the customer with idOne is really deleted
-        assertThat(testDB.selectCustomerById(idOne)).isEmpty();
+        assertThat(testDB.selectCustomerByCustomernumber(idOne)).isEmpty();
 
         //At the end the DB should contain only one customer
         assertThat(testDB.selectAllCustomer())
@@ -98,7 +98,7 @@ public class InMemoryCustomerDaoImplTest
     {
         UUID id = UUID.randomUUID();
 
-        int deleteResult = testDB.deleteCustomerById(id);
+        int deleteResult = testDB.deleteCustomerByCustomernumber(id);
 
         assertThat(deleteResult).isEqualTo(0);
     }
@@ -110,7 +110,7 @@ public class InMemoryCustomerDaoImplTest
         Address address = new Address("Test","Test","Test","Test");
         Customer customer = new Customer(id,"Test",address);
 
-        int updateResult = testDB.updateCustomerById(id,customer);
+        int updateResult = testDB.updateCustomerByCustomernumber(id,customer);
 
         assertThat(updateResult).isEqualTo(0);
     }
