@@ -53,4 +53,19 @@ public class InMemoryCustomerDaoImpl implements CustomerDao
                 .filter(customer -> customer.getCustomernumber().equals(id))
                 .findFirst();
     }
+
+    @Override
+    public List<Customer> selectAllCustomerbyStreet(String street) {
+        List<Customer> filteredCustomerByStreet = new ArrayList<>();
+        inMemoryDB.forEach(customer ->
+                    {
+                        if(customer.getaAddress().getsStreet().contains(street))
+                        {
+                            filteredCustomerByStreet.add(customer);
+                        }
+                    });
+
+
+        return filteredCustomerByStreet;
+    }
 }

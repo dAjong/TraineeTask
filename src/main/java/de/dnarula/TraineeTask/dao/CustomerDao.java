@@ -24,4 +24,6 @@ public interface CustomerDao
 
     int updateCustomerById(UUID id, Customer newCustomer);
 
+    List<Customer> selectAllCustomerbyStreet(String street);
+
 }
